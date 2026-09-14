@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<ScrollPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DocumentationController" fitToWidth="true" styleClass="page-scroll">
+    <VBox spacing="20" styleClass="page">
+        <Label text="Regression Tree Miner" styleClass="page-title"/>
+        <Label text="Progetto sviluppato per l'esame di Metodi Avanzati di Programmazione." wrapText="true" styleClass="description"/>
+        <VBox spacing="14" styleClass="panel"><Label text="Architettura" styleClass="section-title"/><Label text="GUI / Client&#10;      │ Socket TCP&#10;      ▼&#10;Server Multi-thread&#10;      │ JDBC&#10;      ▼&#10;MySQL - MapDB" styleClass="architecture"/></VBox>
+        <Label text="Java e JavaFX · Socket e Thread · JDBC e MySQL · Serialization · Regression Tree e SSE" wrapText="true" styleClass="description"/>
+        <Label text="Il server sceglie gli split minimizzando la SSE e restituisce la predizione della foglia raggiunta. La GUI invia soltanto comandi e indici: non duplica gli algoritmi di apprendimento." wrapText="true" styleClass="muted"/>
+        <HBox spacing="12"><Button fx:id="openReadme" text="APRI README" onAction="#openReadme" styleClass="accent-button"/><Button fx:id="openGuiReadme" text="GUIDA GUI" onAction="#openGuiReadme"/></HBox>
+    </VBox>
+</ScrollPane>

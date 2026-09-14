@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.HomeController" styleClass="home-root">
+    <VBox alignment="CENTER" spacing="20" maxWidth="640" styleClass="home-panel">
+        <Label text="REGRESSION TREE MINER" styleClass="eyebrow"/>
+        <Label text="Regression Tree Miner" styleClass="hero-title" wrapText="true"/>
+        <Label text="Metodi Avanzati di Programmazione" styleClass="subtitle"/>
+        <Label text="Sistema client-server per l'apprendimento e l'utilizzo di alberi di regressione." wrapText="true" textAlignment="CENTER" styleClass="description"/>
+        <Button fx:id="startApplication" text="AVVIA APPLICAZIONE" onAction="#start" styleClass="accent-button" maxWidth="Infinity"/>
+        <Button fx:id="homeDocumentation" text="DOCUMENTAZIONE" onAction="#documentation" maxWidth="Infinity"/>
+        <Button fx:id="homeExit" text="ESCI" onAction="#exit" styleClass="quiet-button"/>
+        <Label text="JavaFX GUI · Socket TCP · MySQL" styleClass="muted"/>
+    </VBox>
+</StackPane>

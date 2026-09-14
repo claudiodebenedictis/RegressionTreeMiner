@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MenuController" styleClass="app-root">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20" styleClass="topbar">
+            <Label text="Regression Tree Miner" styleClass="brand"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="serverBadge" styleClass="status-badge" wrapText="true"/>
+        </HBox>
+    </top>
+    <left>
+        <VBox spacing="8" prefWidth="185" styleClass="sidebar">
+            <Label text="WORKSPACE" styleClass="eyebrow"/>
+            <Button fx:id="navHome" text="Home" onAction="#home" styleClass="nav-button" maxWidth="Infinity" userData="home"/>
+            <Button fx:id="navDashboard" text="Dashboard" onAction="#dashboard" styleClass="nav-button" maxWidth="Infinity" userData="menu"/>
+            <Button fx:id="navServer" text="Server" onAction="#server" styleClass="nav-button" maxWidth="Infinity" userData="server"/>
+            <Button fx:id="navTree" text="Regression Tree" onAction="#tree" styleClass="nav-button" maxWidth="Infinity" userData="regression-tree"/>
+            <Button fx:id="navDatabase" text="Database" onAction="#database" styleClass="nav-button" maxWidth="Infinity" userData="database"/>
+            <Button fx:id="navLog" text="Log" onAction="#log" styleClass="nav-button" maxWidth="Infinity" userData="log"/>
+            <Button fx:id="navDocumentation" text="Documentazione" onAction="#documentation" styleClass="nav-button" maxWidth="Infinity" userData="documentation"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Label text="MAP · Java desktop" styleClass="muted" wrapText="true"/>
+            <Button fx:id="navExit" text="Esci" onAction="#exit" styleClass="nav-button,danger-button" maxWidth="Infinity"/>
+        </VBox>
+    </left>
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="page-scroll">
+            <VBox spacing="24" styleClass="page">
+                <Label text="Dashboard" styleClass="page-title"/>
+                <Label text="Gestisci il server, apprendi un albero e ottieni una predizione." wrapText="true" styleClass="description"/>
+                <GridPane hgap="18" vgap="18">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50" hgrow="ALWAYS"/>
+                        <ColumnConstraints percentWidth="50" hgrow="ALWAYS"/>
+                    </columnConstraints>
+                    <Button fx:id="cardServer" onAction="#server" maxWidth="Infinity" styleClass="card-button" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <graphic><VBox spacing="12"><Label text="SERVER" styleClass="card-title"/><Label text="Gestione del server Regression Tree Miner" wrapText="true"/></VBox></graphic>
+                    </Button>
+                    <Button fx:id="cardTree" onAction="#tree" maxWidth="Infinity" styleClass="card-button" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <graphic><VBox spacing="12"><Label text="REGRESSION TREE" styleClass="card-title"/><Label text="Apprendimento, caricamento e predizione" wrapText="true"/></VBox></graphic>
+                    </Button>
+                    <Button fx:id="cardDatabase" onAction="#database" maxWidth="Infinity" styleClass="card-button" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                        <graphic><VBox spacing="12"><Label text="DATABASE" styleClass="card-title"/><Label text="Stato del database MySQL" wrapText="true"/></VBox></graphic>
+                    </Button>
+                    <Button fx:id="cardLog" onAction="#log" maxWidth="Infinity" styleClass="card-button" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <graphic><VBox spacing="12"><Label text="LOG" styleClass="card-title"/><Label text="Output del server e diagnostica" wrapText="true"/></VBox></graphic>
+                    </Button>
+                </GridPane>
+                <Label text="Il server e MySQL restano processi separati. La GUI non modifica automaticamente il database." styleClass="muted" wrapText="true"/>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

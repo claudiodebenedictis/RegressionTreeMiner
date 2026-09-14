@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<ScrollPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DatabaseController" fitToWidth="true" styleClass="page-scroll">
+    <VBox spacing="20" styleClass="page">
+        <Label text="Database" styleClass="page-title"/>
+        <VBox spacing="14" styleClass="panel">
+            <Label text="MySQL" styleClass="section-title"/>
+            <Label text="Host: localhost"/><Label text="Porta: 3306"/><Label text="Database: MapDB"/><Label text="Tabella test: provaC"/>
+            <Label fx:id="mysqlStatus" styleClass="status-badge"/>
+            <HBox spacing="12"><Button fx:id="checkMysql" text="VERIFICA MYSQL" onAction="#check" styleClass="accent-button"/><Button fx:id="openSql" text="APRI SCRIPT SQL" onAction="#openScript"/></HBox>
+        </VBox>
+        <Label text="La raggiungibilità della porta non garantisce l'autenticazione al database." wrapText="true" styleClass="description"/>
+        <Label text="La verifica è esclusivamente TCP. Non vengono richieste password, eseguite query o modificate tabelle. Lo script SQL viene soltanto aperto, mai eseguito dalla GUI." wrapText="true" styleClass="muted"/>
+    </VBox>
+</ScrollPane>

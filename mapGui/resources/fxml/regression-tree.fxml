@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RegressionTreeController" styleClass="page">
+    <top><VBox spacing="8" styleClass="section-header"><Label text="Regression Tree" styleClass="page-title"/><Label text="Apprendimento e predizione remoti, attraverso il protocollo originale." wrapText="true" styleClass="muted"/></VBox></top>
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="page-scroll">
+            <VBox spacing="16">
+                <VBox spacing="10" styleClass="panel">
+                    <HBox spacing="12" alignment="CENTER_LEFT"><Label text="Connessione" styleClass="section-title"/><Region HBox.hgrow="ALWAYS"/><Label fx:id="connectionStatus" styleClass="status-badge" wrapText="true"/></HBox>
+                    <GridPane hgap="10" vgap="8">
+                        <columnConstraints><ColumnConstraints percentWidth="40" hgrow="ALWAYS"/><ColumnConstraints percentWidth="20" hgrow="ALWAYS"/><ColumnConstraints percentWidth="20"/><ColumnConstraints percentWidth="20"/></columnConstraints>
+                        <Label text="Host"/><Label text="Porta" GridPane.columnIndex="1"/>
+                        <TextField fx:id="host" text="localhost" GridPane.rowIndex="1"/>
+                        <TextField fx:id="port" text="8080" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <Button fx:id="connect" text="CONNETTI" onAction="#connectServer" styleClass="accent-button" maxWidth="Infinity" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                        <Button fx:id="disconnect" text="DISCONNETTI" onAction="#disconnectServer" maxWidth="Infinity" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+                    </GridPane>
+                </VBox>
+                <GridPane hgap="16" vgap="16" VBox.vgrow="ALWAYS">
+                    <columnConstraints><ColumnConstraints percentWidth="45" hgrow="ALWAYS"/><ColumnConstraints percentWidth="55" hgrow="ALWAYS"/></columnConstraints>
+                    <VBox spacing="14" styleClass="panel" GridPane.columnIndex="0" GridPane.valignment="TOP">
+                        <Label text="Modello" styleClass="section-title"/>
+                        <fx:define><ToggleGroup fx:id="modelMode"/></fx:define>
+                        <RadioButton fx:id="learnMode" text="Apprendi nuovo albero" selected="true" toggleGroup="$modelMode"/>
+                        <RadioButton fx:id="loadMode" text="Carica albero" toggleGroup="$modelMode"/>
+                        <VBox fx:id="learnPane" spacing="10">
+                            <Label text="Nome tabella"/>
+                            <TextField fx:id="table" text="provaC"/>
+                            <Button fx:id="learn" text="APPRENDI" onAction="#learnTree" styleClass="accent-button" maxWidth="Infinity"/>
+                        </VBox>
+                        <VBox fx:id="loadPane" spacing="10">
+                            <Label text="Archivio sul server"/>
+                            <TextField fx:id="archive" promptText="Percorso / nome archivio"/>
+                            <Button fx:id="browseArchive" text="SFOGLIA FILE LOCALE" onAction="#chooseArchive" maxWidth="Infinity"/>
+                            <Button fx:id="load" text="CARICA" onAction="#loadTree" styleClass="accent-button" maxWidth="Infinity"/>
+                            <Label text="Il percorso è interpretato sul computer del server. Sfoglia è utile soltanto con server locale." wrapText="true" styleClass="muted"/>
+                        </VBox>
+                    </VBox>
+                    <VBox spacing="12" styleClass="panel" GridPane.columnIndex="1">
+                        <Label text="Predizione" styleClass="section-title"/>
+                        <Button fx:id="predict" text="NUOVA PREDIZIONE" onAction="#predictClass" styleClass="accent-button" maxWidth="Infinity"/>
+                        <Label text="Seleziona un ramo"/>
+                        <TextArea fx:id="question" editable="false" wrapText="true" prefRowCount="3" minHeight="80" VBox.vgrow="ALWAYS"/>
+                        <ComboBox fx:id="options" promptText="Opzioni ricevute dal server" maxWidth="Infinity"/>
+                        <HBox spacing="10"><TextField fx:id="branch" promptText="Indice intero" HBox.hgrow="ALWAYS" onAction="#confirmBranch"/><Button fx:id="answer" text="CONFERMA" onAction="#confirmBranch"/></HBox>
+                    </VBox>
+                </GridPane>
+            </VBox>
+        </ScrollPane>
+    </center>
+    <bottom><VBox spacing="4"><HBox spacing="16" alignment="CENTER_LEFT"><Label text="Classe prevista" styleClass="description"/><Label fx:id="prediction" styleClass="prediction"/></HBox><Label fx:id="message" wrapText="true" styleClass="operation-message"/></VBox></bottom>
+</BorderPane>

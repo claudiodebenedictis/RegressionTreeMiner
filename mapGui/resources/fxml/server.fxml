@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ServerController" styleClass="page">
+    <top>
+        <VBox spacing="16" styleClass="section-header">
+            <Label text="Server" styleClass="page-title"/>
+            <Label text="Host: localhost    ·    Porta: 8080" styleClass="description"/>
+            <Label fx:id="serverStatus" styleClass="status-badge"/>
+            <HBox spacing="12">
+                <Button fx:id="startServer" text="AVVIA SERVER" onAction="#start" styleClass="accent-button"/>
+                <Button fx:id="stopServer" text="ARRESTA SERVER" onAction="#stop"/>
+            </HBox>
+            <Label text="Viene gestito soltanto il processo creato dalla GUI. Eventuali server esterni non saranno arrestati." wrapText="true" styleClass="muted"/>
+            <Label text="Log server" styleClass="section-title"/>
+        </VBox>
+    </top>
+    <center><TextArea fx:id="serverLog" editable="false" wrapText="true" styleClass="log-area"/></center>
+</BorderPane>

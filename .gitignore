@@ -1,0 +1,19 @@
+bin/
+# Native JavaFX runtime libraries are required, not generated application files.
+!mapGui/lib/javafx-sdk-21.0.12/bin/
+!mapGui/lib/javafx-sdk-21.0.12/bin/**
+*.class
+*.log
+test-output/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+*.zip
+*.rar
+AGENTS.md
+PROJECT_CONTEXT.md
+storico/
+docente/

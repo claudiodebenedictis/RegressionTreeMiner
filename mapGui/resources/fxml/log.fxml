@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LogController" styleClass="page">
+    <top><HBox spacing="20" alignment="CENTER_LEFT" styleClass="section-header"><Label text="Log del server" styleClass="page-title"/><Region HBox.hgrow="ALWAYS"/><Button fx:id="clearLog" text="PULISCI LOG" onAction="#clear"/></HBox></top>
+    <center><TextArea fx:id="logArea" editable="false" wrapText="true" styleClass="log-area"/></center>
+</BorderPane>
